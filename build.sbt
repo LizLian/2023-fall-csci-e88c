@@ -35,8 +35,11 @@ lazy val root = (project in file(".")).
       "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED"
     ), // needed to run Spark with Java 17
     libraryDependencies ++= Dependencies.core ++ Dependencies.scalaTest,
-    assembly / mainClass := Some("org.cscie88c.MainApp"),
-    assembly / assemblyJarName := "2023FallScalaBigData.jar",
+    // assembly / mainClass := Some("org.cscie88c.MainApp"),
+    // assembly / assemblyJarName := "2023FallScalaBigData.jar",
+    // for creating a Spark job to submit
+    assembly / mainClass := Some("org.cscie88c.week10.SparkAdvancedApp"),
+    assembly / assemblyJarName := "SparkAdvancedApp.jar",
     assembly / test := {},
     assembly / assemblyMergeStrategy := {
       case PathList("META-INF", xs @ _*) => MergeStrategy.discard
